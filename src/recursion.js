@@ -88,11 +88,20 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  if (x >= 0 && y > 0) { return x >= y ? modulo(x - y, y) : x; }
+  if (x > 0 && y < 0) { return x >= -y ? modulo(x + y, y) : x; }
+  if (x < 0 && y > 0) { return -x >= y ? modulo(x + y, y) : x; }
+  if (x < 0 && y < 0) { return x <= y ? modulo(x - y, y) : x; }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  if (x === 0 || y === 0) { return 0; }
+  if (y < 0 && x > 0) { return multiply(x, y + 1) - x; }
+  if (y > 0 && x < 0) { return multiply(x + 1, y) - y; }
+  if (x < 0 && y < 0) { return multiply(-x, -y + 1) + x; }
+  if (x > 0 && y > 0) { return multiply(x, y - 1) + x; }
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
