@@ -180,8 +180,9 @@ var countOccurrence = function(array, value) {
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
   if (array.length === 0) { return []; }
-  var result = callback(array[0]);
-  return [result].concat(rMap(array.slice(1), callback));
+  var mapValue = callback(array[0]);
+  var returnValue = rMap(array.slice(1), callback);
+  return [mapValue].concat(returnValue);
 };
 
 // 22. Write a function that counts the number of times a key occurs in an object.
