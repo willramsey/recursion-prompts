@@ -24,7 +24,7 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
   if (array.length === 0) { return 0; }
-  
+
   var result;
   if (Array.isArray(array[0])) {
     result = arraySum(array[0]);
@@ -86,6 +86,9 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string === '') { return ''; }
+  var char = string.charAt(0);
+  return reverse(string.slice(1)) + char;
 };
 
 // 10. Write a function that determines if a string is a palindrome.
